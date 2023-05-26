@@ -1,27 +1,30 @@
-//Front-End ou Back-End?
-let perguntaUm = prompt('Qual área você quer seguir, front-end(1) ou back-end(2)');
-let perguntaDois = 0; //declaração para segunda pergunta.
-let perguntaTecnologias = 0; //declaração para a pergunta sobre as tecnologias.
-let perguntaEspecialidadeOuFullstack = 0;
 
-if (perguntaUm == 1){
-    perguntaDois = prompt('Você quer aprender React(1) ou Vue(2)');
+let area = prompt('Qual a área você quer seguir, front-end(1) ou back-end(2)? Digite a opção: ');
+let linguagem = 0;
 
-} else if (perguntaUm == 2){
-    perguntaDois = prompt('Você quer aprender C#(1) ou Java(2)');
+if (area == 1){   
+    area = 'front-end';
+    linguagem = prompt('Qual linguagem você quer aprender, React(1) ou Vue(2)? Digite a opção: ');
+    if (linguagem == 1) linguagem = 'react';
+    if (linguagem == 2) linguagem = 'vue';
 
-} else alert('Você não fez uma escolha válida');
-    
-perguntaEspecialidadeOuFullstack = prompt('Você deseja se especializar(1) ou seguir para carreira Full-stack(2)?');
+} else if(area == 2){
+    area = 'back-end';
+    linguagem = prompt('Qual linguagem você quer aprender, C#(1) ou Java(2)? Digite uma opção: ')
+    if (linguagem == 1) linguagem = 'C#';
+    if (linguagem == 2) linguagem = 'Java';
+};
 
-if (perguntaEspecialidadeOuFullstack == 1){
-    if (perguntaUm == 1 && perguntaDois == 1){
-        alert(`Continue estudando React para especializar em Front-End`);
-    } else if (perguntaUm == 1 && perguntaDois == 2){
-        alert('Continue estudando Vue para especialar em Front-End');
-    } else if (perguntaUm == 2 && perguntaDois == 1){
-        alert('Continue estudando C# para especilizar em Back-End');
-    } else if (perguntaUm == 2 && perguntaDois == 2){
-        alert('Continue estudando Java para especilar em Back-End');
-    };
-}
+let especialidadeOuFullstack = prompt('Deseja seguir se especializando na área escolhida(1) ou seguir de desenvolvendo para se tornar um Fullstack(2)? Digite uma opção:');
+if (especialidadeOuFullstack == 1){
+    alert(`Continue estudando ${linguagem} para aperfeiçoar na área de ${area}.`);    
+} else if (especialidadeOuFullstack == 2){
+    alert(`Para tornar-se um dev FullStack deve-se aprender outras linguagens além de ${linguagem}`);    
+};
+
+let pergunta = prompt('Existe mais alguma linguagem que você deseja aprender? (sim ou não)');
+while (pergunta == 'sim') {
+    let novaLinguagem = prompt('Qual a nova linguagem');
+    alert (`A linguagem ${novaLinguagem} é muito interessante!`);
+    pergunta = prompt('Existe mais alguma linguagem que você deseja aprender? (sim ou não)');
+};
